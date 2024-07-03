@@ -14,13 +14,13 @@ body {
 }
 
 canvas {
-    border: 2px solid #000000;
-    background-color: #ffa600;
+    border: 2px solid #1733d3;
+    background-color: #00816c;
 }
 
 #score {
     font-size: 20px;
-    color: #000000;
+    color: #fff;
     margin-top: 10px;
 }
 
@@ -32,7 +32,7 @@ canvas {
 }
 
 button {
-    background-color: #d31885;
+    background-color: #be1176;
     border: none;
     padding: 10px;
     margin: 5px;
@@ -46,7 +46,7 @@ button img {
 }
 
 button:hover {
-    background-color: #d41b78;
+    background-color: #004d40;
 }
 
 .modal {

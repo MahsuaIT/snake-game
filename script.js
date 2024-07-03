@@ -2,11 +2,17 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const eatSound = document.getElementById('eatSound');
 const scale = 20;
-canvas.width = 350;
-canvas.height = 600;
+let rows, columns;
 
-const rows = canvas.width / scale;
-const columns = canvas.height / scale;
+function resizeCanvas() {
+    canvas.width = window.innerWidth * 0.9;
+    canvas.height = window.innerHeight * 0.6;
+    rows = Math.floor(canvas.width / scale);
+    columns = Math.floor(canvas.height / scale);
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
 let snake;
 let fruit;
@@ -161,22 +167,13 @@ function showGameOverModal() {
     const modal = document.getElementById('gameOverModal');
     const finalScore = document.getElementById('finalScore');
     finalScore.innerText = `Game Over! Your score: ${score}`;
-    modal.style.display = 'block';
+    $('#gameOverModal').modal('show');
 
     document.getElementById('restartButton').addEventListener('click', () => {
-        modal.style.display = 'none';
         score = 0;
         document.getElementById('score').innerText = 'Score: 0';
-        setup();
-    });
-
-    document.getElementById('closeModal').addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
+        snake = new Snake();
+        fruit = new Fruit();
+        fruit.pickLocation();
     });
 }

@@ -2,11 +2,11 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const eatSound = document.getElementById('eatSound');
 const scale = 20;
-const rows = canvas.height / scale;
-const columns = canvas.width / scale;
-
 canvas.width = 350;
 canvas.height = 600;
+
+const rows = canvas.width / scale;
+const columns = canvas.height / scale;
 
 let snake;
 let fruit;
@@ -118,7 +118,8 @@ function Snake() {
     };
 
     this.eat = function(fruit) {
-        if (this.x === fruit.x && this.y === fruit.y) {
+        const tolerance = scale / 2;
+        if (Math.abs(this.x - fruit.x) < tolerance && Math.abs(this.y - fruit.y) < tolerance) {
             this.total++;
             return true;
         }

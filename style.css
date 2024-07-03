@@ -14,8 +14,8 @@ body {
 }
 
 canvas {
-    border: 2px solid #00796b;
-    background-color: #004d40;
+    border: 2px solid #000000;
+    background-color: #ffa600;
 }
 
 #score {
@@ -25,11 +25,14 @@ canvas {
 }
 
 .controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 10px;
 }
 
 button {
-    background-color: #00796b;
+    background-color: #d31885;
     border: none;
     padding: 10px;
     margin: 5px;
@@ -43,7 +46,7 @@ button img {
 }
 
 button:hover {
-    background-color: #004d40;
+    background-color: #d41b78;
 }
 
 .modal {
